@@ -84,9 +84,9 @@ class simbio_paging
             // append "page" var at the end
             $_query_str_page .= 'page=';
             // create full URL
-            $_current_page = $_SERVER['PHP_SELF'].'?'.$_query_str_page;
+            $_current_page = htmlentities($_SERVER['PHP_SELF']).'?'.$_query_str_page; //prevent XSS
         } else {
-            $_current_page = $_SERVER['PHP_SELF'].'?page=';
+            $_current_page = htmlentities($_SERVER['PHP_SELF']).'?page='; //prevent XSS
         }
 
         // target frame
